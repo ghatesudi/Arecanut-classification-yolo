@@ -1,117 +1,84 @@
-Arecanut Classification and Grading using YOLO with Hyperparameter Tuning
+**Arecanut Classification and Grading using YOLO with Hyperparameter Tuning**
 
-This project aims to classify and grade arecanuts using YOLO (You Only Look Once), an efficient object detection model, with hyperparameter tuning for improved accuracy. The model can classify arecanuts into different grades based on their visual features.
+_This project aims to classify and grade arecanuts using YOLO (You Only Look Once), an efficient object detection model, with hyperparameter tuning for improved accuracy. The model can classify arecanuts into different grades based on their visual features._ 
 
 This project includes two distinct scripts for analyzing and visualizing training and hyperparameter tuning results for the arecanut classification model:
+
 
 Hyperparameter Tuning Analysis: Generates plots comparing training and validation metrics across multiple trials.
 
 Final Training Metrics Analysis: Creates composite plots for individual training runs, showing key metrics in a single image.
 
-Overview of Scripts
+**Overview of Scripts**
 
-1. Hyperparameter Tuning Analysis
+#_1. Hyperparameter Tuning Analysis_
 
 Purpose
-
 Generates comparative plots for:
 
-Training Loss vs. Epochs
-
-Validation Loss vs. Epochs
-
-Top-1 Accuracy vs. Epochs
-
-Top-5 Accuracy vs. Epochs
+-Training Loss vs. Epochs
+-Validation Loss vs. Epochs
+-Top-1 Accuracy vs. Epochs
+-Top-5 Accuracy vs. Epochs
 
 These plots are grouped by trial, enabling easy comparison of multiple hyperparameter tuning experiments.
 
 Input
-
 Each trial folder under the specified base directory should contain a results.csv file with the following columns:
 
-epoch: Epoch number.
-
-train/loss: Training loss.
-
-val/loss: Validation loss.
-
-metrics/accuracy_top1: Top-1 accuracy.
-
-metrics/accuracy_top5: Top-5 accuracy.
+epoch: Epoch number, train/loss: Training loss, val/loss: Validation loss, metrics/accuracy_top1: Top-1 accuracy, -metrics/accuracy_top5: Top-5 accuracy.
 
 Output
-
 For each trial, PNG files are generated:
-
-Loss vs. Epochs (Training and Validation Loss)
-
-Accuracy vs. Epochs (Top-1 and Top-5 Accuracy)
+_Loss vs. Epochs (Training and Validation Loss)_
+_Accuracy vs. Epochs (Top-1 and Top-5 Accuracy)_
 
 Usage
 
 Place the hyperparameter_tuning_plot.py script in the project directory.
 
 Set the base directory containing trial folders in the script:
-
+```
 base_path = "/path/to/hyperparameter_trials"
-
+```
 Run the script:
-
+```
 python hyperparameter_tuning_plot.py
-
+```
 The plots will be saved in the plots/ directory under the base path.
 
-2. Final Training Metrics Analysis
+#_2. Final Training Metrics Analysis_
 
 Purpose
-
-Generates composite plots for individual training runs, showing:
-
-Training Loss
-
-Validation Loss
-
-Top-1 Accuracy
-
-Top-5 Accuracy
+_Generates composite plots for individual training runs, showing:_
+-Training Loss
+-Validation Loss
+-Top-1 Accuracy
+-Top-5 Accuracy
 
 Each metric is displayed in a separate subplot, providing a comprehensive overview of the training process.
 
 Input
 
 Each training folder under the specified base directory should contain a results.csv file with the following columns:
-
-epoch: Epoch number.
-
-train/loss: Training loss.
-
-val/loss: Validation loss.
-
-metrics/accuracy_top1: Top-1 accuracy.
-
-metrics/accuracy_top5: Top-5 accuracy.
+epoch: Epoch number, train/loss: Training loss, val/loss: Validation loss, metrics/accuracy_top1: Top-1 accuracy, -metrics/accuracy_top5: Top-5 accuracy.
 
 Output
-
 For each folder, a composite PNG file is generated containing all four metrics.
 
 ##Usage
 
 Place the composite_metrics_plot.py script in the project directory.
-
 Set the base directory containing final training folders in the script:
-
 base_dir = "/path/to/final_models"
 
 Run the script:
-
+```
 python composite_metrics_plot.py
-
+```
 The composite plots will be saved in the respective training folders.
 
 Directory Structure
-
 
 ```
 project/
@@ -142,48 +109,46 @@ Smoothing (Composite Metrics Analysis)
 
 Adjust the sigma parameter for Gaussian filter smoothing. A higher value makes the curves smoother, while a lower value sharpens them.
 
-sigma = 2  # Increase for smoother curves, decrease for tighter curves
+```python
+sigma = 2  # Increase for smoother curves
+```
 
 Y-Axis Limits (Composite Metrics Analysis)
-
 You can customize y-axis ranges in the process_results_folder function:
 
+```
 y_axis_limits = {
     "train_loss": (-0.05, 1.1),
     "val_loss": (0, 0.7),
     "accuracy_top1": (0.775, 1),
     "accuracy_top5": (0.8, 1),
 }
-
+```
 ##Prerequisites
 
 Ensure that the following Python libraries are installed:
-
-pandas
-
-matplotlib
-
-seaborn
-
-scipy
+-pandas
+-matplotlib
+-seaborn
+-scipy
 
 Install them using:
-
+```
 pip install pandas matplotlib seaborn scipy
-
+```
 
 ###Example Commands
 
-Hyperparameter Tuning Analysis
-
+**Hyperparameter Tuning Analysis**
+```
 python hyperparameter_tuning_plot.py
-
+```
 This will generate comparative plots for all trials in the specified base_path directory.
 
-Final Training Metrics Analysis
-
+**Final Training Metrics Analysis**
+```
 python composite_metrics_plot.py
-
+```
 This will generate composite plots for all training folders in the specified base_dir directory.
 
 
