@@ -96,7 +96,7 @@ Output
 
 For each folder, a composite PNG file is generated containing all four metrics.
 
-Usage
+##Usage
 
 Place the composite_metrics_plot.py script in the project directory.
 
@@ -112,6 +112,8 @@ The composite plots will be saved in the respective training folders.
 
 Directory Structure
 
+
+```
 project/
 ├── runs/
 │   ├── hyperparameter_trials/
@@ -132,8 +134,9 @@ project/
 ├── hyperparameter_tuning_plot.py
 ├── composite_metrics_plot.py
 └── README.md
+```
 
-Configuration
+##Configuration
 
 Smoothing (Composite Metrics Analysis)
 
@@ -152,7 +155,7 @@ y_axis_limits = {
     "accuracy_top5": (0.8, 1),
 }
 
-Prerequisites
+##Prerequisites
 
 Ensure that the following Python libraries are installed:
 
